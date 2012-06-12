@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		554667A91587EC580045FF15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554667A81587EC580045FF15 /* UIKit.framework */; };
+		554667AB1587EC580045FF15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554667AA1587EC580045FF15 /* Foundation.framework */; };
+		554667AD1587EC580045FF15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554667AC1587EC580045FF15 /* CoreGraphics.framework */; };
+		554667B31587EC580045FF15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 554667B11587EC580045FF15 /* InfoPlist.strings */; };
+		554667B51587EC580045FF15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667B41587EC580045FF15 /* main.m */; };
+		554667B91587EC580045FF15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667B81587EC580045FF15 /* AppDelegate.m */; };
+		554667BC1587EC580045FF15 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667BB1587EC580045FF15 /* ViewController.m */; };
+		554667BF1587EC580045FF15 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554667BD1587EC580045FF15 /* ViewController_iPhone.xib */; };
+		554667C21587EC580045FF15 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554667C01587EC580045FF15 /* ViewController_iPad.xib */; };
+		554667CA1587EC590045FF15 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554667C91587EC590045FF15 /* SenTestingKit.framework */; };
+		554667CB1587EC590045FF15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554667A81587EC580045FF15 /* UIKit.framework */; };
+		554667CC1587EC590045FF15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554667AA1587EC580045FF15 /* Foundation.framework */; };
+		554667D41587EC590045FF15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 554667D21587EC590045FF15 /* InfoPlist.strings */; };
+		554667D71587EC590045FF15 /* BWNoticeViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667D61587EC590045FF15 /* BWNoticeViewTests.m */; };
+		554667E31587EC9E0045FF15 /* BWNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667E21587EC9E0045FF15 /* BWNoticeView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		554667CD1587EC590045FF15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5546679B1587EC580045FF15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 554667A31587EC580045FF15;
+			remoteInfo = BWNoticeView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		554667A41587EC580045FF15 /* BWNoticeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BWNoticeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		554667A81587EC580045FF15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		554667AA1587EC580045FF15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		554667AC1587EC580045FF15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		554667B01587EC580045FF15 /* BWNoticeView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BWNoticeView-Info.plist"; sourceTree = "<group>"; };
+		554667B21587EC580045FF15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		554667B41587EC580045FF15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		554667B61587EC580045FF15 /* BWNoticeView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BWNoticeView-Prefix.pch"; sourceTree = "<group>"; };
+		554667B71587EC580045FF15 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		554667B81587EC580045FF15 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		554667BA1587EC580045FF15 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		554667BB1587EC580045FF15 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		554667BE1587EC580045FF15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
+		554667C11587EC580045FF15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		554667C81587EC590045FF15 /* BWNoticeViewTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BWNoticeViewTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		554667C91587EC590045FF15 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		554667D11587EC590045FF15 /* BWNoticeViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BWNoticeViewTests-Info.plist"; sourceTree = "<group>"; };
+		554667D31587EC590045FF15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		554667D51587EC590045FF15 /* BWNoticeViewTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BWNoticeViewTests.h; sourceTree = "<group>"; };
+		554667D61587EC590045FF15 /* BWNoticeViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWNoticeViewTests.m; sourceTree = "<group>"; };
+		554667E11587EC9E0045FF15 /* BWNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BWNoticeView.h; path = BWNoticeViewLib/BWNoticeView.h; sourceTree = "<group>"; };
+		554667E21587EC9E0045FF15 /* BWNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BWNoticeView.m; path = BWNoticeViewLib/BWNoticeView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		554667A11587EC580045FF15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554667A91587EC580045FF15 /* UIKit.framework in Frameworks */,
+				554667AB1587EC580045FF15 /* Foundation.framework in Frameworks */,
+				554667AD1587EC580045FF15 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554667C41587EC590045FF15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554667CA1587EC590045FF15 /* SenTestingKit.framework in Frameworks */,
+				554667CB1587EC590045FF15 /* UIKit.framework in Frameworks */,
+				554667CC1587EC590045FF15 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		554667991587EC580045FF15 = {
+			isa = PBXGroup;
+			children = (
+				554667E01587EC630045FF15 /* BWNoticeViewLib */,
+				554667AE1587EC580045FF15 /* BWNoticeView */,
+				554667CF1587EC590045FF15 /* BWNoticeViewTests */,
+				554667A71587EC580045FF15 /* Frameworks */,
+				554667A51587EC580045FF15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		554667A51587EC580045FF15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				554667A41587EC580045FF15 /* BWNoticeView.app */,
+				554667C81587EC590045FF15 /* BWNoticeViewTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		554667A71587EC580045FF15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				554667A81587EC580045FF15 /* UIKit.framework */,
+				554667AA1587EC580045FF15 /* Foundation.framework */,
+				554667AC1587EC580045FF15 /* CoreGraphics.framework */,
+				554667C91587EC590045FF15 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		554667AE1587EC580045FF15 /* BWNoticeView */ = {
+			isa = PBXGroup;
+			children = (
+				554667B71587EC580045FF15 /* AppDelegate.h */,
+				554667B81587EC580045FF15 /* AppDelegate.m */,
+				554667BA1587EC580045FF15 /* ViewController.h */,
+				554667BB1587EC580045FF15 /* ViewController.m */,
+				554667BD1587EC580045FF15 /* ViewController_iPhone.xib */,
+				554667C01587EC580045FF15 /* ViewController_iPad.xib */,
+				554667AF1587EC580045FF15 /* Supporting Files */,
+			);
+			path = BWNoticeView;
+			sourceTree = "<group>";
+		};
+		554667AF1587EC580045FF15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				554667B01587EC580045FF15 /* BWNoticeView-Info.plist */,
+				554667B11587EC580045FF15 /* InfoPlist.strings */,
+				554667B41587EC580045FF15 /* main.m */,
+				554667B61587EC580045FF15 /* BWNoticeView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		554667CF1587EC590045FF15 /* BWNoticeViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				554667D51587EC590045FF15 /* BWNoticeViewTests.h */,
+				554667D61587EC590045FF15 /* BWNoticeViewTests.m */,
+				554667D01587EC590045FF15 /* Supporting Files */,
+			);
+			path = BWNoticeViewTests;
+			sourceTree = "<group>";
+		};
+		554667D01587EC590045FF15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				554667D11587EC590045FF15 /* BWNoticeViewTests-Info.plist */,
+				554667D21587EC590045FF15 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		554667E01587EC630045FF15 /* BWNoticeViewLib */ = {
+			isa = PBXGroup;
+			children = (
+				554667E11587EC9E0045FF15 /* BWNoticeView.h */,
+				554667E21587EC9E0045FF15 /* BWNoticeView.m */,
+			);
+			name = BWNoticeViewLib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		554667A31587EC580045FF15 /* BWNoticeView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 554667DA1587EC590045FF15 /* Build configuration list for PBXNativeTarget "BWNoticeView" */;
+			buildPhases = (
+				554667A01587EC580045FF15 /* Sources */,
+				554667A11587EC580045FF15 /* Frameworks */,
+				554667A21587EC580045FF15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BWNoticeView;
+			productName = BWNoticeView;
+			productReference = 554667A41587EC580045FF15 /* BWNoticeView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		554667C71587EC590045FF15 /* BWNoticeViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 554667DD1587EC590045FF15 /* Build configuration list for PBXNativeTarget "BWNoticeViewTests" */;
+			buildPhases = (
+				554667C31587EC590045FF15 /* Sources */,
+				554667C41587EC590045FF15 /* Frameworks */,
+				554667C51587EC590045FF15 /* Resources */,
+				554667C61587EC590045FF15 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				554667CE1587EC590045FF15 /* PBXTargetDependency */,
+			);
+			name = BWNoticeViewTests;
+			productName = BWNoticeViewTests;
+			productReference = 554667C81587EC590045FF15 /* BWNoticeViewTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5546679B1587EC580045FF15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 5546679E1587EC580045FF15 /* Build configuration list for PBXProject "BWNoticeView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 554667991587EC580045FF15;
+			productRefGroup = 554667A51587EC580045FF15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				554667A31587EC580045FF15 /* BWNoticeView */,
+				554667C71587EC590045FF15 /* BWNoticeViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		554667A21587EC580045FF15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554667B31587EC580045FF15 /* InfoPlist.strings in Resources */,
+				554667BF1587EC580045FF15 /* ViewController_iPhone.xib in Resources */,
+				554667C21587EC580045FF15 /* ViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554667C51587EC590045FF15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554667D41587EC590045FF15 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		554667C61587EC590045FF15 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		554667A01587EC580045FF15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554667B51587EC580045FF15 /* main.m in Sources */,
+				554667B91587EC580045FF15 /* AppDelegate.m in Sources */,
+				554667BC1587EC580045FF15 /* ViewController.m in Sources */,
+				554667E31587EC9E0045FF15 /* BWNoticeView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554667C31587EC590045FF15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554667D71587EC590045FF15 /* BWNoticeViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		554667CE1587EC590045FF15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 554667A31587EC580045FF15 /* BWNoticeView */;
+			targetProxy = 554667CD1587EC590045FF15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		554667B11587EC580045FF15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				554667B21587EC580045FF15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		554667BD1587EC580045FF15 /* ViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				554667BE1587EC580045FF15 /* en */,
+			);
+			name = ViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		554667C01587EC580045FF15 /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				554667C11587EC580045FF15 /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		554667D21587EC590045FF15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				554667D31587EC590045FF15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		554667D81587EC590045FF15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		554667D91587EC590045FF15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		554667DB1587EC590045FF15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BWNoticeView/BWNoticeView-Prefix.pch";
+				INFOPLIST_FILE = "BWNoticeView/BWNoticeView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		554667DC1587EC590045FF15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BWNoticeView/BWNoticeView-Prefix.pch";
+				INFOPLIST_FILE = "BWNoticeView/BWNoticeView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		554667DE1587EC590045FF15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BWNoticeView.app/BWNoticeView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BWNoticeView/BWNoticeView-Prefix.pch";
+				INFOPLIST_FILE = "BWNoticeViewTests/BWNoticeViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		554667DF1587EC590045FF15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BWNoticeView.app/BWNoticeView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BWNoticeView/BWNoticeView-Prefix.pch";
+				INFOPLIST_FILE = "BWNoticeViewTests/BWNoticeViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5546679E1587EC580045FF15 /* Build configuration list for PBXProject "BWNoticeView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				554667D81587EC590045FF15 /* Debug */,
+				554667D91587EC590045FF15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		554667DA1587EC590045FF15 /* Build configuration list for PBXNativeTarget "BWNoticeView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				554667DB1587EC590045FF15 /* Debug */,
+				554667DC1587EC590045FF15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		554667DD1587EC590045FF15 /* Build configuration list for PBXNativeTarget "BWNoticeViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				554667DE1587EC590045FF15 /* Debug */,
+				554667DF1587EC590045FF15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5546679B1587EC580045FF15 /* Project object */;
+}
