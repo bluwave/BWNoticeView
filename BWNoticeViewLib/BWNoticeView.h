@@ -10,4 +10,7 @@
 
 @interface BWNoticeView : UIView
 
+@property(nonatomic, retain) UIColor *backgroundGradientTop;
+@property(nonatomic, retain) UIColor *backgroundGradientBottom;
+
 @end

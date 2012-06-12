@@ -18,10 +18,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    BWNoticeView * bwView = [[BWNoticeView alloc] init ];
     CGRect f = self.view.frame;
     f.size.height = 55;
-    bwView.frame = f;
+
+        BWNoticeView * bwView = [[BWNoticeView alloc] initWithFrame:f];
+
     [self.view addSubview:bwView];
     [bwView release];
 }

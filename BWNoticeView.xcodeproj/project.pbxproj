@@ -22,6 +22,8 @@
 		554667D41587EC590045FF15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 554667D21587EC590045FF15 /* InfoPlist.strings */; };
 		554667D71587EC590045FF15 /* BWNoticeViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667D61587EC590045FF15 /* BWNoticeViewTests.m */; };
 		554667E31587EC9E0045FF15 /* BWNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667E21587EC9E0045FF15 /* BWNoticeView.m */; };
+		554667E91587EF0C0045FF15 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554667E81587EF0C0045FF15 /* QuartzCore.framework */; };
+		554667E91587EF0C0045FF17 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667E91587EF0C0045FF16 /* GradientView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,9 @@
 		554667D61587EC590045FF15 /* BWNoticeViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWNoticeViewTests.m; sourceTree = "<group>"; };
 		554667E11587EC9E0045FF15 /* BWNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BWNoticeView.h; path = BWNoticeViewLib/BWNoticeView.h; sourceTree = "<group>"; };
 		554667E21587EC9E0045FF15 /* BWNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BWNoticeView.m; path = BWNoticeViewLib/BWNoticeView.m; sourceTree = "<group>"; };
+		554667E81587EF0C0045FF15 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		554667E91587EF0C0045FF16 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradientView.m; path = BWNoticeViewLib/GradientView.m; sourceTree = "<group>"; };
+		554667E91587EF0C0045FF18 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradientView.h; path = BWNoticeViewLib/GradientView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				554667E91587EF0C0045FF15 /* QuartzCore.framework in Frameworks */,
 				554667A91587EC580045FF15 /* UIKit.framework in Frameworks */,
 				554667AB1587EC580045FF15 /* Foundation.framework in Frameworks */,
 				554667AD1587EC580045FF15 /* CoreGraphics.framework in Frameworks */,
@@ -86,6 +92,7 @@
 		554667991587EC580045FF15 = {
 			isa = PBXGroup;
 			children = (
+				554667E81587EF0C0045FF15 /* QuartzCore.framework */,
 				554667E01587EC630045FF15 /* BWNoticeViewLib */,
 				554667AE1587EC580045FF15 /* BWNoticeView */,
 				554667CF1587EC590045FF15 /* BWNoticeViewTests */,
@@ -161,6 +168,8 @@
 		554667E01587EC630045FF15 /* BWNoticeViewLib */ = {
 			isa = PBXGroup;
 			children = (
+				554667E91587EF0C0045FF18 /* GradientView.h */,
+				554667E91587EF0C0045FF16 /* GradientView.m */,
 				554667E11587EC9E0045FF15 /* BWNoticeView.h */,
 				554667E21587EC9E0045FF15 /* BWNoticeView.m */,
 			);
@@ -278,6 +287,7 @@
 				554667B91587EC580045FF15 /* AppDelegate.m in Sources */,
 				554667BC1587EC580045FF15 /* ViewController.m in Sources */,
 				554667E31587EC9E0045FF15 /* BWNoticeView.m in Sources */,
+				554667E91587EF0C0045FF17 /* GradientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +465,7 @@
 				554667DC1587EC590045FF15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		554667DD1587EC590045FF15 /* Build configuration list for PBXNativeTarget "BWNoticeViewTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +474,7 @@
 				554667DF1587EC590045FF15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
