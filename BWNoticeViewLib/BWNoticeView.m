@@ -13,24 +13,103 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+
+
+@interface UIColor (BWNoticeViewColors)
+
++(UIColor*) NoticeBlueGradientTop;
+
++(UIColor*) NoticeBlueGradientBottom;
+
+@end
+
+@implementation UIColor (BWNoticeViewColors)
+
++(UIColor*) NoticeBlueGradientTop
+{
+    return [UIColor colorWithRed:37 / 255.0f green:122 / 255.0f blue:185 / 255.0f alpha:1.0];
+}
+
++(UIColor*) NoticeBlueGradientBottom
+{
+    return [UIColor colorWithRed:18 / 255.0f green:96 / 255.0f blue:154 / 255.0f alpha:1.0];
+}
+
++(UIColor*) NoticeBlueBorder1
+{
+    return [UIColor colorWithRed:105 / 255.0f green:163 / 255.0f blue:208 / 255.0f alpha:1.0];
+}
+
++(UIColor*) NoticeBlueBorder2
+{
+    return [UIColor colorWithRed:46 / 255.0f green:126 / 255.0f blue:188 / 255.0f alpha:1.0];
+}
+
++(UIColor*) NoticeBlueBorder3
+{
+    return [UIColor colorWithRed:18 / 255.0f green:92 / 255.0f blue:149 / 255.0f alpha:1.0];
+}
+
++(UIColor*) NoticeBlueBorder4
+{
+    return [UIColor colorWithRed:4 / 255.0f green:45 / 255.0f blue:75 / 255.0f alpha:1.0];
+}
+
+
++(UIColor*) ErrorRedGradientTop
+{
+    return [UIColor colorWithRed:167/255.0f green:26/255.0f blue:20/255.0f alpha:1.0];
+}
+
++(UIColor*) ErrorRedGradientBottom
+{
+    return [UIColor colorWithRed:134/255.0f green:9/255.0f blue:7/255.0f alpha:1.0];
+}
+
+
++(UIColor*) ErrorRedBorder1
+{
+    return [UIColor colorWithRed:211/255.0f green:82/255.0f blue:80/255.0f alpha:1.0];
+}
+
++(UIColor*) ErrorRedBorder2
+{
+    return [UIColor colorWithRed:193/255.0f green:30/255.0f blue:23/255.0f alpha:1.0];
+}
+
++(UIColor*) ErrorRedBorder3
+{
+    return [UIColor colorWithRed:134/255.0f green:9/255.0f blue:7/255.0f alpha:1.0];
+}
+
++(UIColor*) ErrorRedBorder4
+{
+    return [UIColor colorWithRed:52/255.0f green:4/255.0f blue:3/255.0f alpha:1.0];
+}
+
+
+@end
+
+
 @interface BWNoticeView()
 @property(nonatomic, retain) UIButton *btnClickToDismiss;
 
 @property(nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
+
+@property(nonatomic, retain) UIColor *border1;
+
+@property(nonatomic, retain) UIColor *border2;
+
+@property(nonatomic, retain) UIColor *border3;
+
+@property(nonatomic, retain) UIColor *border4;
 
 @end
 
 @implementation BWNoticeView
 @synthesize backgroundGradientBottom, backgroundGradientTop, btnClickToDismiss, canBeDismissed, titleLabel, icon , showActivityIndicator;
 @synthesize activityIndicatorView, style;
-
-static UIColor * defaultBackgroundGradientTop;
-static UIColor * defaultBackgroundGradientBottom;
-
-static UIColor * firstTopLine;
-static UIColor * secondTopLine;
-static UIColor * firstBottomLine;
-static UIColor * secondBottomLine;
+@synthesize border1, border2, border3, border4;
 
 -(void)dealloc
 {
@@ -43,18 +122,6 @@ static UIColor * secondBottomLine;
     [super dealloc];
 }
 
-+(void)initialize
-{
-    defaultBackgroundGradientTop = [[UIColor colorWithRed:37 / 255.0f green:122 / 255.0f blue:185 / 255.0f alpha:1.0] retain];
-    defaultBackgroundGradientBottom = [[UIColor colorWithRed:18 / 255.0f green:96 / 255.0f blue:154 / 255.0f alpha:1.0] retain];
-
-    firstTopLine = [[UIColor colorWithRed:105 / 255.0f green:163 / 255.0f blue:208 / 255.0f alpha:1.0] retain];
-    secondTopLine = [[UIColor colorWithRed:46 / 255.0f green:126 / 255.0f blue:188 / 255.0f alpha:1.0] retain];
-    firstBottomLine = [[UIColor colorWithRed:18 / 255.0f green:92 / 255.0f blue:149 / 255.0f alpha:1.0] retain];
-    secondBottomLine = [[UIColor colorWithRed:4 / 255.0f green:45 / 255.0f blue:75 / 255.0f alpha:1.0] retain];
-}
-
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -66,10 +133,11 @@ static UIColor * secondBottomLine;
 
 -(void) __init
 {
-    self.backgroundGradientTop = defaultBackgroundGradientTop;
-    self.backgroundGradientBottom = defaultBackgroundGradientBottom;
+    [self setStyle:NOTICE];
+
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.canBeDismissed = YES;
+    self.style = NOTICE;
 
     // add button to help dismiss view when clicked
     self.btnClickToDismiss = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -132,23 +200,23 @@ static UIColor * secondBottomLine;
 
 
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.bounds.size.width, 1.0)];
-    v.backgroundColor = firstTopLine;
+    v.backgroundColor = border1;
     [self addSubview:v];
     [v release];
 
     v = [[UIView alloc] initWithFrame:CGRectMake(0.0, 1.0, self.bounds.size.width, 1.0)];
-    v.backgroundColor = secondTopLine;
+    v.backgroundColor = border2;
     [self addSubview:v];
     [v release];
 
     v = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.bounds.size.height - 1, self.frame.size.width, 1.0)];
-    v.backgroundColor = firstBottomLine;
+    v.backgroundColor = border3;
     [self addSubview:v];
     [v release];
 
 
     v = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.bounds.size.height - 1, self.frame.size.width, 1.0)];
-    v.backgroundColor = secondBottomLine;
+    v.backgroundColor = border4;
     [self addSubview:v];
     [v release];
 
@@ -219,7 +287,7 @@ static UIColor * secondBottomLine;
     if (aBackgroundGradientBottom != backgroundGradientBottom)
     {
         [backgroundGradientBottom release];
-        backgroundGradientBottom = [aBackgroundGradientBottom copy];
+        backgroundGradientBottom = [aBackgroundGradientBottom retain];
     }
 
     [self setNeedsDisplay];
@@ -230,7 +298,7 @@ static UIColor * secondBottomLine;
     if (aBackgroundGradientTop != backgroundGradientTop)
     {
         [backgroundGradientTop release];
-        backgroundGradientTop = [aBackgroundGradientTop copy];
+        backgroundGradientTop = [aBackgroundGradientTop retain];
     }
 
     [self setNeedsDisplay];
@@ -238,13 +306,45 @@ static UIColor * secondBottomLine;
 
 -(void)setStyle:(Style)aStyle
 {
-    self.style = aStyle;
+    style = aStyle;
+
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"BWNoticeView.bundle"];
+    NSString *iconPath = nil;
+
+
     switch(aStyle)
     {
         case NOTICE:
+            // set gradient colors
+            self.backgroundGradientTop = [UIColor NoticeBlueGradientTop] ;
+            self.backgroundGradientBottom = [UIColor NoticeBlueGradientBottom];
+
+            // set borders
+            self.border1 = [UIColor NoticeBlueBorder1];
+            self.border2 = [UIColor NoticeBlueBorder2];
+            self.border3 = [UIColor NoticeBlueBorder3];
+            self.border4 = [UIColor NoticeBlueBorder4];
+
+            // set icon
+            iconPath = [path stringByAppendingPathComponent:@"success.png"];
+            self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
 
             break;
         case ERROR:
+            // set gradient colors
+            self.backgroundGradientTop = [UIColor ErrorRedGradientTop];
+            self.backgroundGradientBottom = [UIColor ErrorRedGradientBottom];
+
+            // set borders
+            self.border1 = [UIColor ErrorRedBorder1];
+            self.border2 = [UIColor ErrorRedBorder2];
+            self.border3 = [UIColor ErrorRedBorder3];
+            self.border4 = [UIColor ErrorRedBorder4];
+
+            // set icon
+            iconPath = [path stringByAppendingPathComponent:@"error.png"];
+            self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
+
             break;
     }
 }
@@ -260,6 +360,7 @@ static UIColor * secondBottomLine;
     }
     else
     {
+        [activityIndicatorView stopAnimating];
         activityIndicatorView.hidden = YES;
         icon.hidden = NO;
     }

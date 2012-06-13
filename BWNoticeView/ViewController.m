@@ -29,7 +29,8 @@
     f.size.height = 55;
 
     self.bwView = [[[BWNoticeView alloc] initWithFrame:f] autorelease];
-    bwView.showActivityIndicator = YES;
+    bwView.showActivityIndicator = NO;
+    [bwView setStyle:ERROR];
 
     [self.view addSubview:bwView];
     [bwView release];
