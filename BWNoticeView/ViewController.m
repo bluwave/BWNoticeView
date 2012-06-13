@@ -10,10 +10,17 @@
 #import "BWNoticeView.h"
 
 @interface ViewController ()
-
+@property(nonatomic, retain) BWNoticeView *bwView;
 @end
 
 @implementation ViewController
+@synthesize bwView;
+-(void)dealloc
+{
+    [bwView release];
+    [super dealloc];
+}
+
 
 - (void)viewDidLoad
 {
@@ -21,7 +28,7 @@
     CGRect f = self.view.frame;
     f.size.height = 55;
 
-        BWNoticeView * bwView = [[BWNoticeView alloc] initWithFrame:f];
+    self.bwView = [[[BWNoticeView alloc] initWithFrame:f] autorelease];
 
     [self.view addSubview:bwView];
     [bwView release];
@@ -31,6 +38,11 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [bwView setNeedsDisplay];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

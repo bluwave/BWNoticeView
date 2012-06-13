@@ -32,6 +32,7 @@ static UIColor * defaultBackgroundGradientBottom;
         [self sizeToFit];
         self.topColor = top_;
         self.bottomColor = bottom_;
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     }
     return self;
 }
@@ -43,6 +44,7 @@ static UIColor * defaultBackgroundGradientBottom;
     {
         self.topColor = defaultBackgroundGradientTop;
         self.bottomColor = defaultBackgroundGradientBottom;
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     }
     return self;
 }
@@ -57,7 +59,7 @@ static UIColor * defaultBackgroundGradientBottom;
 - (void)drawRect:(CGRect)rect
 {
     CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = self.bounds;
+    gradient.frame = rect;
     gradient.colors = [NSArray arrayWithObjects:(id) topColor.CGColor, (id) bottomColor.CGColor, nil];
     gradient.locations = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:0.7], nil];
 

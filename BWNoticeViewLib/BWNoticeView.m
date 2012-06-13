@@ -64,18 +64,21 @@ static UIColor * secondBottomLine;
     self.backgroundGradientTop = defaultBackgroundGradientTop;
     self.backgroundGradientBottom = defaultBackgroundGradientBottom;
 
-
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.gradientView = [[[GradientView alloc] initWithWithFrame:self.frame topGradientColor:backgroundGradientTop bottomGradientColor:backgroundGradientBottom] autorelease];
-    gradientView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    [self addSubview:gradientView];
 }
 
+-(void)setNeedsDisplay
+{
+    [super setNeedsDisplay];
+    [gradientView setNeedsDisplay];
+}
 
 - (void)drawRect:(CGRect)rect
 {
 
-    NSLog(@"%s %@",__func__, NSStringFromCGRect(rect));
-    [self addSubview:gradientView];
+    [super drawRect:rect];
 
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.bounds.size.width, 1.0)];
     v.backgroundColor = firstTopLine;
@@ -97,6 +100,10 @@ static UIColor * secondBottomLine;
     v.backgroundColor = secondBottomLine;
     [self addSubview:v];
     [v release];
+
+
+
+
 
 }
 
