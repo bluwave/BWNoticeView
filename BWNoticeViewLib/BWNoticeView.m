@@ -87,6 +87,11 @@
     return [UIColor colorWithRed:52/255.0f green:4/255.0f blue:3/255.0f alpha:1.0];
 }
 
++(UIColor*) ErrorRedMessageTextColor
+{
+    return [UIColor colorWithRed:239.0/255.0 green:167.0/255.0 blue:163.0/255.0 alpha:1.0];
+}
+
 
 @end
 
