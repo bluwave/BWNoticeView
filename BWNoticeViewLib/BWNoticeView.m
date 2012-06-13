@@ -213,6 +213,29 @@ static UIColor * secondBottomLine;
 
 
 
+
+-(void)setBackgroundGradientBottom:(UIColor *)aBackgroundGradientBottom
+{
+    if (aBackgroundGradientBottom != backgroundGradientBottom)
+    {
+        [backgroundGradientBottom release];
+        backgroundGradientBottom = [aBackgroundGradientBottom copy];
+    }
+
+    [self setNeedsDisplay];
+}
+
+-(void)setBackgroundGradientTop:(UIColor *)aBackgroundGradientTop
+{
+    if (aBackgroundGradientTop != backgroundGradientTop)
+    {
+        [backgroundGradientTop release];
+        backgroundGradientTop = [aBackgroundGradientTop copy];
+    }
+
+    [self setNeedsDisplay];
+}
+
 -(void)setStyle:(Style)aStyle
 {
     self.style = aStyle;

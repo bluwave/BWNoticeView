@@ -12,9 +12,9 @@ typedef enum Style {NOTICE, ERROR} visualStyle;
 
 @interface BWNoticeView : UIView
 
-@property(nonatomic, retain) UIColor *backgroundGradientTop;
+@property(nonatomic, copy) UIColor *backgroundGradientTop;
 
-@property(nonatomic, retain) UIColor *backgroundGradientBottom;
+@property(nonatomic, copy) UIColor *backgroundGradientBottom;
 
 @property(nonatomic) BOOL canBeDismissed;
 
