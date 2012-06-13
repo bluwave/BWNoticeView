@@ -16,6 +16,8 @@
 
 @property(nonatomic) BOOL canBeDismissed;
 
+@property(nonatomic, retain) UILabel *titleLabel;
+
 -(void) show;
 
 -(void) showAndDismissAfterDelay:(float) delay;

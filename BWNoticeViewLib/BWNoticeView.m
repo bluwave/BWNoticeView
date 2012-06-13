@@ -20,7 +20,7 @@
 @end
 
 @implementation BWNoticeView
-@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView, btnClickToDismiss, canBeDismissed;
+@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView, btnClickToDismiss, canBeDismissed, titleLabel;
 
 
 static UIColor * defaultBackgroundGradientTop;
@@ -33,6 +33,7 @@ static UIColor * secondBottomLine;
 
 -(void)dealloc
 {
+    [titleLabel release];
     [btnClickToDismiss release];
     [gradientView release];
     [backgroundGradientBottom release];
@@ -65,16 +66,40 @@ static UIColor * secondBottomLine;
 {
     self.backgroundGradientTop = defaultBackgroundGradientTop;
     self.backgroundGradientBottom = defaultBackgroundGradientBottom;
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.canBeDismissed = YES;
 
+    // add button to help dismiss view when clicked
     self.btnClickToDismiss = [UIButton buttonWithType:UIButtonTypeCustom];
     btnClickToDismiss.frame = self.frame;
     [btnClickToDismiss addTarget:self action:@selector(dismissClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btnClickToDismiss];
 
-    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    // add gradient view
     self.gradientView = [[[GradientView alloc] initWithWithFrame:self.frame topGradientColor:backgroundGradientTop bottomGradientColor:backgroundGradientBottom] autorelease];
     gradientView.userInteractionEnabled = NO;
     [self addSubview:gradientView];
+
+
+    float titleYOrigin = 18.0;
+
+    // titleLabel
+    self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(55.0, titleYOrigin, self.frame.size.width - 70.0, 16.0)] autorelease];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+    self.titleLabel.shadowColor = [UIColor blackColor];
+    self.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.text = @"hello world";
+    [self addSubview:titleLabel];
+
+
+    // add shadow
+    self.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.layer.shadowOffset = CGSizeMake(0.0, 3);
+    self.layer.shadowOpacity = 0.50;
+    self.layer.masksToBounds = NO;
+    self.layer.shouldRasterize = YES;
 
 
 }
@@ -110,6 +135,17 @@ static UIColor * secondBottomLine;
     v.backgroundColor = secondBottomLine;
     [self addSubview:v];
     [v release];
+
+
+//    // Make and add the title label
+//        float titleYOrigin = 18.0;
+//        self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(55.0, titleYOrigin, viewWidth - 70.0, 16.0)];
+//        self.titleLabel.textColor = [UIColor whiteColor];
+//        self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+//        self.titleLabel.shadowColor = [UIColor blackColor];
+//        self.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
+//        self.titleLabel.backgroundColor = [UIColor clearColor];
+//        self.titleLabel.text = title;
 
 
 }
@@ -151,7 +187,7 @@ static UIColor * secondBottomLine;
 
         self.frame = frame;
 
-    } completion:^(BOOL) {}];
+    } completion:^(BOOL completed) {}];
 }
 
 -(void) dismissClicked:(id) sender
