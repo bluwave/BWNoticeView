@@ -17,12 +17,13 @@
 @interface BWNoticeView()
 @property(nonatomic, retain) UIView *gradientView;
 @property(nonatomic, retain) UIButton *btnClickToDismiss;
+@property(nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
 
 @end
 
 @implementation BWNoticeView
-@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView, btnClickToDismiss, canBeDismissed, titleLabel, icon;
-
+@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView, btnClickToDismiss, canBeDismissed, titleLabel, icon , showActivityIndicator;
+@synthesize activityIndicatorView;
 
 static UIColor * defaultBackgroundGradientTop;
 static UIColor * defaultBackgroundGradientBottom;
@@ -34,6 +35,7 @@ static UIColor * secondBottomLine;
 
 -(void)dealloc
 {
+    [activityIndicatorView release];
     [icon release];
     [titleLabel release];
     [btnClickToDismiss release];
@@ -105,6 +107,13 @@ static UIColor * secondBottomLine;
     icon.alpha = 0.8;
     [self addSubview:icon];
 
+    // activity indicator
+    self.activityIndicatorView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+    self.activityIndicatorView.frame = CGRectMake(10, 10, 30, 30);
+    [self.activityIndicatorView startAnimating];
+    self.activityIndicatorView.hidden = YES;
+    [self addSubview:activityIndicatorView];
+
 
     // add shadow
     self.layer.shadowColor = [[UIColor blackColor] CGColor];
@@ -114,6 +123,22 @@ static UIColor * secondBottomLine;
     self.layer.shouldRasterize = YES;
 
 
+}
+
+-(void)setShowActivityIndicator:(BOOL)aShowActivityIndicator
+{
+    showActivityIndicator = aShowActivityIndicator;
+    if (aShowActivityIndicator)
+    {
+        self.icon.hidden = YES;
+        self.activityIndicatorView.hidden = NO;
+        [activityIndicatorView startAnimating];
+    }
+    else
+    {
+        activityIndicatorView.hidden = YES;
+        icon.hidden = NO;
+    }
 }
 
 -(void)setNeedsDisplay
@@ -215,5 +240,8 @@ static UIColor * secondBottomLine;
         }];
     }
 }
+
+
+
 
 @end

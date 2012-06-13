@@ -20,6 +20,8 @@
 
 @property(nonatomic, retain) UIImageView *icon;
 
+@property(nonatomic) BOOL showActivityIndicator;
+
 -(void) show;
 
 -(void) showAndDismissAfterDelay:(float) delay;
