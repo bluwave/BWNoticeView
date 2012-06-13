@@ -382,6 +382,8 @@
         case NOTICE:
             iconPath = [path stringByAppendingPathComponent:@"success.png"];
             self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
+            self.showActivityIndicator = NO;
+            self.message = nil;
 
             self.colorCartridge = noticeBlueCartridge;
             break;
@@ -389,6 +391,7 @@
             // set icon
             iconPath = [path stringByAppendingPathComponent:@"error.png"];
             self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
+            self.showActivityIndicator = NO;
 
             self.colorCartridge = errorRedCartridge;
             break;
