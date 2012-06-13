@@ -66,6 +66,7 @@
 -(IBAction) showNoticeViewError:(id) sender
 {
     [self.bwView setStyle:ERROR];
+    bwView.showActivityIndicator = NO;
     [bwView showAndDismissAfterDelay:0.8];
 }
 

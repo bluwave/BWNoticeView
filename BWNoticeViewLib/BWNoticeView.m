@@ -151,6 +151,7 @@
     self.btnClickToDismiss = [UIButton buttonWithType:UIButtonTypeCustom];
     btnClickToDismiss.frame = self.frame;
     [btnClickToDismiss addTarget:self action:@selector(dismissClicked:) forControlEvents:UIControlEventTouchUpInside];
+    btnClickToDismiss.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self addSubview:btnClickToDismiss];
 
 
