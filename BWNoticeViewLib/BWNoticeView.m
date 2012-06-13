@@ -18,6 +18,7 @@
 @implementation NoticeViewColorCartridge
 
 @synthesize gradientBottom , gradientTop, border1, border2, border3, border4;
+
 -(void)dealloc
 {
     [gradientBottom release];
@@ -29,16 +30,10 @@
     [super dealloc];
 }
 
-
 @end
 
-//@interface UIColor (BWNoticeViewColors)
-//
-//+(UIColor*) NoticeBlueGradientTop;
-//
-//+(UIColor*) NoticeBlueGradientBottom;
-//
-//@end
+@interface UIColor (BWNoticeViewColors)
+@end
 
 @implementation UIColor (BWNoticeViewColors)
 
@@ -302,6 +297,31 @@
         } completion:^(BOOL complete) {
 
         }];
+    }
+}
+
+
+-(void) setDefaultCartridgeType:(DefaultCartridgeType) cartridgeType
+{
+
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"BWNoticeView.bundle"];
+    NSString *iconPath = nil;
+
+    switch (cartridgeType)
+    {
+        case NOTICE:
+            iconPath = [path stringByAppendingPathComponent:@"success.png"];
+            self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
+
+            self.colorCartridge = noticeBlueCartridge;
+            break;
+        case ERROR:
+            // set icon
+            iconPath = [path stringByAppendingPathComponent:@"error.png"];
+            self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
+
+            self.colorCartridge = errorRedCartridge;
+            break;
     }
 }
 

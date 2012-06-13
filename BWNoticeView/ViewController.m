@@ -59,13 +59,14 @@
 -(IBAction) showNoticeView:(id) sender
 {
 
+    [bwView setDefaultCartridgeType:NOTICE];
     bwView.showActivityIndicator = YES;
     [bwView show];
 }
 
 -(IBAction) showNoticeViewError:(id) sender
 {
-
+    [bwView setDefaultCartridgeType:ERROR];
     bwView.showActivityIndicator = NO;
     [bwView showAndDismissAfterDelay:0.8];
 }

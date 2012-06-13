@@ -26,6 +26,7 @@
 @end
 
 
+typedef enum DefaultCartridgeType {NOTICE, ERROR} DefaultCartridgeType;
 
 @interface BWNoticeView : UIView
 
@@ -38,6 +39,9 @@
 @property(nonatomic) BOOL showActivityIndicator;
 
 @property(nonatomic, retain) NoticeViewColorCartridge *colorCartridge;
+
+
+-(void) setDefaultCartridgeType:(DefaultCartridgeType) cartridgeType;
 
 -(void) show;
 
