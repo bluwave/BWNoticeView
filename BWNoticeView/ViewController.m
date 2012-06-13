@@ -30,7 +30,7 @@
 
     self.bwView = [[[BWNoticeView alloc] initWithFrame:f] autorelease];
     bwView.showActivityIndicator = NO;
-    [bwView setStyle:ERROR];
+
 
     [self.view addSubview:bwView];
     [bwView release];
@@ -58,14 +58,14 @@
 
 -(IBAction) showNoticeView:(id) sender
 {
-    [self.bwView setStyle:NOTICE];
+
     bwView.showActivityIndicator = YES;
     [bwView show];
 }
 
 -(IBAction) showNoticeViewError:(id) sender
 {
-    [self.bwView setStyle:ERROR];
+
     bwView.showActivityIndicator = NO;
     [bwView showAndDismissAfterDelay:0.8];
 }

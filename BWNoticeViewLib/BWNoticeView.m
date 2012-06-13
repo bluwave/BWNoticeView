@@ -15,13 +15,30 @@
 
 
 
-@interface UIColor (BWNoticeViewColors)
+@implementation NoticeViewColorCartridge
 
-+(UIColor*) NoticeBlueGradientTop;
+@synthesize gradientBottom , gradientTop, border1, border2, border3, border4;
+-(void)dealloc
+{
+    [gradientBottom release];
+    [gradientTop release];
+    [border1 release];
+    [border2 release];
+    [border3 release];
+    [border4 release];
+    [super dealloc];
+}
 
-+(UIColor*) NoticeBlueGradientBottom;
 
 @end
+
+//@interface UIColor (BWNoticeViewColors)
+//
+//+(UIColor*) NoticeBlueGradientTop;
+//
+//+(UIColor*) NoticeBlueGradientBottom;
+//
+//@end
 
 @implementation UIColor (BWNoticeViewColors)
 
@@ -101,22 +118,18 @@
 
 @property(nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
 
-@property(nonatomic, retain) UIColor *border1;
-
-@property(nonatomic, retain) UIColor *border2;
-
-@property(nonatomic, retain) UIColor *border3;
-
-@property(nonatomic, retain) UIColor *border4;
-
 @property(nonatomic, retain) CAGradientLayer *gradientLayer;
+
+@property(nonatomic, retain) NoticeViewColorCartridge *noticeBlueCartridge;
+
+@property(nonatomic, retain) NoticeViewColorCartridge *errorRedCartridge;
 
 @end
 
 @implementation BWNoticeView
-@synthesize backgroundGradientBottom, backgroundGradientTop, btnClickToDismiss, canBeDismissed, titleLabel, icon , showActivityIndicator;
-@synthesize activityIndicatorView, style, gradientLayer;
-@synthesize border1, border2, border3, border4;
+@synthesize colorCartridge, btnClickToDismiss, canBeDismissed, titleLabel, icon , showActivityIndicator;
+@synthesize activityIndicatorView,  gradientLayer;
+@synthesize noticeBlueCartridge, errorRedCartridge;
 
 -(void)dealloc
 {
@@ -125,8 +138,9 @@
     [icon release];
     [titleLabel release];
     [btnClickToDismiss release];
-    [backgroundGradientBottom release];
-    [backgroundGradientTop release];
+    [colorCartridge release];
+    [noticeBlueCartridge release];
+    [errorRedCartridge release];
     [super dealloc];
 }
 
@@ -141,11 +155,13 @@
 
 -(void) __init
 {
-    [self setStyle:NOTICE];
+
+    [self initDefaultCartridges];
+    self.colorCartridge = noticeBlueCartridge;
 
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.canBeDismissed = YES;
-    self.style = NOTICE;
+
 
     // add button to help dismiss view when clicked
     self.btnClickToDismiss = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -205,28 +221,28 @@
     [super drawRect:rect];
 
     gradientLayer.frame = rect;
-    gradientLayer.colors = [NSArray arrayWithObjects:(id) backgroundGradientTop.CGColor, (id) backgroundGradientBottom.CGColor, nil];
+    gradientLayer.colors = [NSArray arrayWithObjects:(id) colorCartridge.gradientTop.CGColor, (id) colorCartridge.gradientTop.CGColor, nil];
     gradientLayer.locations = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:0.7], nil];
 
 
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.bounds.size.width, 1.0)];
-    v.backgroundColor = border1;
+    v.backgroundColor = colorCartridge.border1;
     [self addSubview:v];
     [v release];
 
     v = [[UIView alloc] initWithFrame:CGRectMake(0.0, 1.0, self.bounds.size.width, 1.0)];
-    v.backgroundColor = border2;
+    v.backgroundColor = colorCartridge.border2;
     [self addSubview:v];
     [v release];
 
     v = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.bounds.size.height - 1, self.frame.size.width, 1.0)];
-    v.backgroundColor = border3;
+    v.backgroundColor = colorCartridge.border3;
     [self addSubview:v];
     [v release];
 
 
     v = [[UIView alloc] initWithFrame:CGRectMake(0.0, self.bounds.size.height - 1, self.frame.size.width, 1.0)];
-    v.backgroundColor = border4;
+    v.backgroundColor = colorCartridge.border4;
     [self addSubview:v];
     [v release];
 
@@ -290,76 +306,15 @@
 }
 
 
-
-
--(void)setBackgroundGradientBottom:(UIColor *)aBackgroundGradientBottom
+-(void)setColorCartridge:(NoticeViewColorCartridge *)aColorCartridge
 {
-    if (aBackgroundGradientBottom != backgroundGradientBottom)
+    if (colorCartridge != aColorCartridge)
     {
-        [backgroundGradientBottom release];
-        backgroundGradientBottom = [aBackgroundGradientBottom retain];
+        [colorCartridge release];
+        colorCartridge = [aColorCartridge retain];
+        [self setNeedsDisplay];
     }
 
-    [self setNeedsDisplay];
-}
-
--(void)setBackgroundGradientTop:(UIColor *)aBackgroundGradientTop
-{
-    if (aBackgroundGradientTop != backgroundGradientTop)
-    {
-        [backgroundGradientTop release];
-        backgroundGradientTop = [aBackgroundGradientTop retain];
-    }
-
-    [self setNeedsDisplay];
-}
-
--(void)setStyle:(Style)aStyle
-{
-    style = aStyle;
-
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"BWNoticeView.bundle"];
-    NSString *iconPath = nil;
-
-
-    switch(aStyle)
-    {
-        case NOTICE:
-
-            // set borders
-            self.border1 = [UIColor NoticeBlueBorder1];
-            self.border2 = [UIColor NoticeBlueBorder2];
-            self.border3 = [UIColor NoticeBlueBorder3];
-            self.border4 = [UIColor NoticeBlueBorder4];
-
-
-            // set gradient colors
-            self.backgroundGradientTop = [UIColor NoticeBlueGradientTop] ;
-            self.backgroundGradientBottom = [UIColor NoticeBlueGradientBottom];
-
-
-            // set icon
-            iconPath = [path stringByAppendingPathComponent:@"success.png"];
-            self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
-
-            break;
-        case ERROR:
-            // set borders
-            self.border1 = [UIColor ErrorRedBorder1];
-            self.border2 = [UIColor ErrorRedBorder2];
-            self.border3 = [UIColor ErrorRedBorder3];
-            self.border4 = [UIColor ErrorRedBorder4];
-
-            // set gradient colors
-            self.backgroundGradientTop = [UIColor ErrorRedGradientTop];
-            self.backgroundGradientBottom = [UIColor ErrorRedGradientBottom];
-
-            // set icon
-            iconPath = [path stringByAppendingPathComponent:@"error.png"];
-            self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
-
-            break;
-    }
 }
 
 -(void)setShowActivityIndicator:(BOOL)aShowActivityIndicator
@@ -379,5 +334,27 @@
     }
 }
 
+
+
+
+-(void) initDefaultCartridges
+{
+    self.errorRedCartridge = [[[NoticeViewColorCartridge alloc] init] autorelease];
+    errorRedCartridge.gradientTop = [UIColor ErrorRedGradientTop];
+    errorRedCartridge.gradientBottom = [UIColor ErrorRedGradientBottom];
+    errorRedCartridge.border1 = [UIColor ErrorRedBorder1];
+    errorRedCartridge.border2 = [UIColor ErrorRedBorder2];
+    errorRedCartridge.border3 = [UIColor ErrorRedBorder3];
+    errorRedCartridge.border4 = [UIColor ErrorRedBorder4];
+
+    self.noticeBlueCartridge = [[[NoticeViewColorCartridge alloc] init] autorelease];
+    noticeBlueCartridge.gradientTop = [UIColor NoticeBlueGradientTop];
+    noticeBlueCartridge.gradientBottom = [UIColor NoticeBlueGradientBottom];
+    noticeBlueCartridge.border1 = [UIColor NoticeBlueBorder1];
+    noticeBlueCartridge.border2 = [UIColor NoticeBlueBorder2];
+    noticeBlueCartridge.border3 = [UIColor NoticeBlueBorder3];
+    noticeBlueCartridge.border4 = [UIColor NoticeBlueBorder4];
+
+}
 
 @end

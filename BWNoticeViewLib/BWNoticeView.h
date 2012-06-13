@@ -9,13 +9,25 @@
 #import <UIKit/UIKit.h>
 
 
-typedef enum Style {NOTICE, ERROR} visualStyle;
+@interface NoticeViewColorCartridge:NSObject
+
+@property(nonatomic, retain) UIColor *gradientTop;
+
+@property(nonatomic, retain) UIColor *gradientBottom;
+
+@property(nonatomic, retain) UIColor * border1;
+
+@property(nonatomic, retain) UIColor * border2;
+
+@property(nonatomic, retain) UIColor * border3;
+
+@property(nonatomic, retain) UIColor * border4;
+
+@end
+
+
 
 @interface BWNoticeView : UIView
-
-@property(nonatomic, retain) UIColor *backgroundGradientTop;
-
-@property(nonatomic, retain) UIColor *backgroundGradientBottom;
 
 @property(nonatomic) BOOL canBeDismissed;
 
@@ -25,7 +37,7 @@ typedef enum Style {NOTICE, ERROR} visualStyle;
 
 @property(nonatomic) BOOL showActivityIndicator;
 
-@property(nonatomic) Style style;
+@property(nonatomic, retain) NoticeViewColorCartridge *colorCartridge;
 
 -(void) show;
 
