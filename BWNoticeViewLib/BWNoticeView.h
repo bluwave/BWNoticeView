@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum Style {NOTICE, ERROR} visualStyle;
+
 @interface BWNoticeView : UIView
 
 @property(nonatomic, retain) UIColor *backgroundGradientTop;
@@ -22,6 +24,8 @@
 
 @property(nonatomic) BOOL showActivityIndicator;
 
+@property(nonatomic) Style style;
+
 -(void) show;
 
 -(void) showAndDismissAfterDelay:(float) delay;
@@ -29,5 +33,7 @@
 -(void) dismiss;
 
 -(void) dismissAfterDelay:(float) delay;
+
+
 
 @end

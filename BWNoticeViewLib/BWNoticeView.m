@@ -10,20 +10,19 @@
 //
 
 #import "BWNoticeView.h"
-#import "GradientView.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface BWNoticeView()
-@property(nonatomic, retain) UIView *gradientView;
 @property(nonatomic, retain) UIButton *btnClickToDismiss;
+
 @property(nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
 
 @end
 
 @implementation BWNoticeView
-@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView, btnClickToDismiss, canBeDismissed, titleLabel, icon , showActivityIndicator;
-@synthesize activityIndicatorView;
+@synthesize backgroundGradientBottom, backgroundGradientTop, btnClickToDismiss, canBeDismissed, titleLabel, icon , showActivityIndicator;
+@synthesize activityIndicatorView, style;
 
 static UIColor * defaultBackgroundGradientTop;
 static UIColor * defaultBackgroundGradientBottom;
@@ -39,7 +38,6 @@ static UIColor * secondBottomLine;
     [icon release];
     [titleLabel release];
     [btnClickToDismiss release];
-    [gradientView release];
     [backgroundGradientBottom release];
     [backgroundGradientTop release];
     [super dealloc];
@@ -78,11 +76,6 @@ static UIColor * secondBottomLine;
     btnClickToDismiss.frame = self.frame;
     [btnClickToDismiss addTarget:self action:@selector(dismissClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btnClickToDismiss];
-
-    // add gradient view
-    self.gradientView = [[[GradientView alloc] initWithWithFrame:self.frame topGradientColor:backgroundGradientTop bottomGradientColor:backgroundGradientBottom] autorelease];
-    gradientView.userInteractionEnabled = NO;
-    [self addSubview:gradientView];
 
 
     float titleYOrigin = 18.0;
@@ -125,32 +118,18 @@ static UIColor * secondBottomLine;
 
 }
 
--(void)setShowActivityIndicator:(BOOL)aShowActivityIndicator
-{
-    showActivityIndicator = aShowActivityIndicator;
-    if (aShowActivityIndicator)
-    {
-        self.icon.hidden = YES;
-        self.activityIndicatorView.hidden = NO;
-        [activityIndicatorView startAnimating];
-    }
-    else
-    {
-        activityIndicatorView.hidden = YES;
-        icon.hidden = NO;
-    }
-}
-
--(void)setNeedsDisplay
-{
-    [super setNeedsDisplay];
-    [gradientView setNeedsDisplay];
-}
-
 - (void)drawRect:(CGRect)rect
 {
 
     [super drawRect:rect];
+
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = rect;
+    gradient.colors = [NSArray arrayWithObjects:(id) backgroundGradientTop.CGColor, (id) backgroundGradientBottom.CGColor, nil];
+    gradient.locations = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:0.7], nil];
+
+    [self.layer insertSublayer:gradient atIndex:0];
+
 
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.bounds.size.width, 1.0)];
     v.backgroundColor = firstTopLine;
@@ -175,6 +154,8 @@ static UIColor * secondBottomLine;
 
 
 }
+
+
 
 -(void) show
 {
@@ -231,6 +212,35 @@ static UIColor * secondBottomLine;
 }
 
 
+
+-(void)setStyle:(Style)aStyle
+{
+    self.style = aStyle;
+    switch(aStyle)
+    {
+        case NOTICE:
+
+            break;
+        case ERROR:
+            break;
+    }
+}
+
+-(void)setShowActivityIndicator:(BOOL)aShowActivityIndicator
+{
+    showActivityIndicator = aShowActivityIndicator;
+    if (aShowActivityIndicator)
+    {
+        self.icon.hidden = YES;
+        self.activityIndicatorView.hidden = NO;
+        [activityIndicatorView startAnimating];
+    }
+    else
+    {
+        activityIndicatorView.hidden = YES;
+        icon.hidden = NO;
+    }
+}
 
 
 @end
