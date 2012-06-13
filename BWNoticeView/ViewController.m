@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];
     CGRect f = self.view.frame;
-    f.size.height = 55;
+    f.size.height = 60;
 
     self.bwView = [[[BWNoticeView alloc] initWithFrame:f] autorelease];
     bwView.showActivityIndicator = NO;
@@ -55,5 +55,19 @@
         return YES;
     }
 }
+
+-(IBAction) showNoticeView:(id) sender
+{
+    [self.bwView setStyle:NOTICE];
+    bwView.showActivityIndicator = YES;
+    [bwView show];
+}
+
+-(IBAction) showNoticeViewError:(id) sender
+{
+    [self.bwView setStyle:ERROR];
+    [bwView showAndDismissAfterDelay:0.8];
+}
+
 
 @end

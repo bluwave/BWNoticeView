@@ -109,15 +109,18 @@
 
 @property(nonatomic, retain) UIColor *border4;
 
+@property(nonatomic, retain) CAGradientLayer *gradientLayer;
+
 @end
 
 @implementation BWNoticeView
 @synthesize backgroundGradientBottom, backgroundGradientTop, btnClickToDismiss, canBeDismissed, titleLabel, icon , showActivityIndicator;
-@synthesize activityIndicatorView, style;
+@synthesize activityIndicatorView, style, gradientLayer;
 @synthesize border1, border2, border3, border4;
 
 -(void)dealloc
 {
+    [gradientLayer release];
     [activityIndicatorView release];
     [icon release];
     [titleLabel release];
@@ -181,6 +184,10 @@
     [self addSubview:activityIndicatorView];
 
 
+    // add gradient
+    self.gradientLayer = [CAGradientLayer layer];
+    [self.layer insertSublayer:gradientLayer atIndex:0];
+    
     // add shadow
     self.layer.shadowColor = [[UIColor blackColor] CGColor];
     self.layer.shadowOffset = CGSizeMake(0.0, 3);
@@ -196,12 +203,9 @@
 
     [super drawRect:rect];
 
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = rect;
-    gradient.colors = [NSArray arrayWithObjects:(id) backgroundGradientTop.CGColor, (id) backgroundGradientBottom.CGColor, nil];
-    gradient.locations = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:0.7], nil];
-
-    [self.layer insertSublayer:gradient atIndex:0];
+    gradientLayer.frame = rect;
+    gradientLayer.colors = [NSArray arrayWithObjects:(id) backgroundGradientTop.CGColor, (id) backgroundGradientBottom.CGColor, nil];
+    gradientLayer.locations = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:0.7], nil];
 
 
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.bounds.size.width, 1.0)];
@@ -237,7 +241,7 @@
 -(void) showAndDismissAfterDelay:(float) delay
 {
     CGRect frame = self.frame;
-    frame.origin.y = self.frame.size.height;
+    frame.origin.y = 0;
     // show
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationCurveEaseOut animations:^() {
         self.frame = frame;
@@ -320,9 +324,6 @@
     switch(aStyle)
     {
         case NOTICE:
-            // set gradient colors
-            self.backgroundGradientTop = [UIColor NoticeBlueGradientTop] ;
-            self.backgroundGradientBottom = [UIColor NoticeBlueGradientBottom];
 
             // set borders
             self.border1 = [UIColor NoticeBlueBorder1];
@@ -330,21 +331,27 @@
             self.border3 = [UIColor NoticeBlueBorder3];
             self.border4 = [UIColor NoticeBlueBorder4];
 
+
+            // set gradient colors
+            self.backgroundGradientTop = [UIColor NoticeBlueGradientTop] ;
+            self.backgroundGradientBottom = [UIColor NoticeBlueGradientBottom];
+
+
             // set icon
             iconPath = [path stringByAppendingPathComponent:@"success.png"];
             self.icon.image = [UIImage imageWithContentsOfFile:iconPath];
 
             break;
         case ERROR:
-            // set gradient colors
-            self.backgroundGradientTop = [UIColor ErrorRedGradientTop];
-            self.backgroundGradientBottom = [UIColor ErrorRedGradientBottom];
-
             // set borders
             self.border1 = [UIColor ErrorRedBorder1];
             self.border2 = [UIColor ErrorRedBorder2];
             self.border3 = [UIColor ErrorRedBorder3];
             self.border4 = [UIColor ErrorRedBorder4];
+
+            // set gradient colors
+            self.backgroundGradientTop = [UIColor ErrorRedGradientTop];
+            self.backgroundGradientBottom = [UIColor ErrorRedGradientBottom];
 
             // set icon
             iconPath = [path stringByAppendingPathComponent:@"error.png"];

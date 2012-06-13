@@ -10,4 +10,7 @@
 
 @interface ViewController : UIViewController
 
+-(IBAction) showNoticeView:(id) sender;
+
+-(IBAction) showNoticeViewError:(id) sender;
 @end
