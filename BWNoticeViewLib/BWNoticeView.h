@@ -32,11 +32,13 @@ typedef enum DefaultCartridgeType {NOTICE, ERROR} DefaultCartridgeType;
 
 @property(nonatomic) BOOL canBeDismissed;
 
-@property(nonatomic, retain) UILabel *titleLabel;
-
 @property(nonatomic, retain) UIImageView *icon;
 
 @property(nonatomic) BOOL showActivityIndicator;
+
+@property(nonatomic, copy) NSString *title;
+
+@property(nonatomic, copy) NSString *message;
 
 //  set the colors of the gradient and the different border colors
 //  border 1 is top first border line

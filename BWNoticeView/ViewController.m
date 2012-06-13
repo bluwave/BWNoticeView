@@ -30,6 +30,7 @@
 
     self.bwView = [[[BWNoticeView alloc] initWithFrame:f] autorelease];
     bwView.showActivityIndicator = NO;
+    bwView.title = @"hello world";
 
 
     [self.view addSubview:bwView];
@@ -60,6 +61,8 @@
 {
 
     [bwView setDefaultCartridgeType:NOTICE];
+    bwView.title = @"This is a notice";
+    bwView.message = nil;
     bwView.showActivityIndicator = YES;
     [bwView show];
 }
@@ -67,6 +70,8 @@
 -(IBAction) showNoticeViewError:(id) sender
 {
     [bwView setDefaultCartridgeType:ERROR];
+    bwView.title = @"Error has occurred";
+    bwView.message = @"hello world lorum ipsem din bin foobar hello world lorum ipsem din bin foobar hello world lorum ipsem din bin foobar hello world lorum ipsem din bin foobar";
     bwView.showActivityIndicator = NO;
     [bwView showAndDismissAfterDelay:0.8];
 }
