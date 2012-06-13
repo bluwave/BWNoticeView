@@ -16,10 +16,11 @@
 
 @interface BWNoticeView()
 @property(nonatomic, retain) UIView *gradientView;
+@property(nonatomic, retain) UIButton *btnClickToDismiss;
 @end
 
 @implementation BWNoticeView
-@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView;
+@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView, btnClickToDismiss, canBeDismissed;
 
 
 static UIColor * defaultBackgroundGradientTop;
@@ -32,6 +33,7 @@ static UIColor * secondBottomLine;
 
 -(void)dealloc
 {
+    [btnClickToDismiss release];
     [gradientView release];
     [backgroundGradientBottom release];
     [backgroundGradientTop release];
@@ -64,9 +66,17 @@ static UIColor * secondBottomLine;
     self.backgroundGradientTop = defaultBackgroundGradientTop;
     self.backgroundGradientBottom = defaultBackgroundGradientBottom;
 
+    self.btnClickToDismiss = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnClickToDismiss.frame = self.frame;
+    [btnClickToDismiss addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:btnClickToDismiss];
+
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.gradientView = [[[GradientView alloc] initWithWithFrame:self.frame topGradientColor:backgroundGradientTop bottomGradientColor:backgroundGradientBottom] autorelease];
+    gradientView.userInteractionEnabled = NO;
     [self addSubview:gradientView];
+
+
 }
 
 -(void)setNeedsDisplay
@@ -102,10 +112,20 @@ static UIColor * secondBottomLine;
     [v release];
 
 
-
-
-
 }
 
+-(void) dismiss:(id) sender
+{
+    if (canBeDismissed)
+    {
+        CGRect frame = self.frame;
+        frame.origin.y -= self.frame.size.height + self.frame.origin.y + 5;
+        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationCurveEaseOut animations:^(){
+            self.frame = frame;
+        } completion:^(BOOL complete) {
+
+        }];
+    }
+}
 
 @end

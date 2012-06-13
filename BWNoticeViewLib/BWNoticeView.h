@@ -12,5 +12,5 @@
 
 @property(nonatomic, retain) UIColor *backgroundGradientTop;
 @property(nonatomic, retain) UIColor *backgroundGradientBottom;
-
+@property(nonatomic) BOOL canBeDismissed;
 @end
