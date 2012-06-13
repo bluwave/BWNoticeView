@@ -24,6 +24,7 @@
 		554667E31587EC9E0045FF15 /* BWNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667E21587EC9E0045FF15 /* BWNoticeView.m */; };
 		554667E91587EF0C0045FF15 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554667E81587EF0C0045FF15 /* QuartzCore.framework */; };
 		554667E91587EF0C0045FF17 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 554667E91587EF0C0045FF16 /* GradientView.m */; };
+		55CAC9FA1588516900143DD2 /* BWNoticeView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 55CAC9F91588516900143DD2 /* BWNoticeView.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		554667E81587EF0C0045FF15 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		554667E91587EF0C0045FF16 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradientView.m; path = BWNoticeViewLib/GradientView.m; sourceTree = "<group>"; };
 		554667E91587EF0C0045FF18 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradientView.h; path = BWNoticeViewLib/GradientView.h; sourceTree = "<group>"; };
+		55CAC9F91588516900143DD2 /* BWNoticeView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BWNoticeView.bundle; path = BWNoticeViewLib/BWNoticeView.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		554667E01587EC630045FF15 /* BWNoticeViewLib */ = {
 			isa = PBXGroup;
 			children = (
+				55CAC9F91588516900143DD2 /* BWNoticeView.bundle */,
 				554667E91587EF0C0045FF18 /* GradientView.h */,
 				554667E91587EF0C0045FF16 /* GradientView.m */,
 				554667E11587EC9E0045FF15 /* BWNoticeView.h */,
@@ -249,6 +252,7 @@
 				554667B31587EC580045FF15 /* InfoPlist.strings in Resources */,
 				554667BF1587EC580045FF15 /* ViewController_iPhone.xib in Resources */,
 				554667C21587EC580045FF15 /* ViewController_iPad.xib in Resources */,
+				55CAC9FA1588516900143DD2 /* BWNoticeView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

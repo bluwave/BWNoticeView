@@ -17,10 +17,11 @@
 @interface BWNoticeView()
 @property(nonatomic, retain) UIView *gradientView;
 @property(nonatomic, retain) UIButton *btnClickToDismiss;
+
 @end
 
 @implementation BWNoticeView
-@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView, btnClickToDismiss, canBeDismissed, titleLabel;
+@synthesize backgroundGradientBottom, backgroundGradientTop, gradientView, btnClickToDismiss, canBeDismissed, titleLabel, icon;
 
 
 static UIColor * defaultBackgroundGradientTop;
@@ -33,6 +34,7 @@ static UIColor * secondBottomLine;
 
 -(void)dealloc
 {
+    [icon release];
     [titleLabel release];
     [btnClickToDismiss release];
     [gradientView release];
@@ -92,6 +94,16 @@ static UIColor * secondBottomLine;
     self.titleLabel.backgroundColor = [UIColor clearColor];
     self.titleLabel.text = @"hello world";
     [self addSubview:titleLabel];
+
+
+    //default icon image
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"BWNoticeView.bundle"];
+    NSString *iconPath = [path stringByAppendingPathComponent:@"success.png"];
+    self.icon = [[[UIImageView alloc] initWithFrame:CGRectMake(10.0, 10.0, 20.0, 30.0)] autorelease];
+    icon.image = [UIImage imageWithContentsOfFile:iconPath];
+    icon.contentMode = UIViewContentModeScaleAspectFit;
+    icon.alpha = 0.8;
+    [self addSubview:icon];
 
 
     // add shadow

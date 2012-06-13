@@ -18,6 +18,8 @@
 
 @property(nonatomic, retain) UILabel *titleLabel;
 
+@property(nonatomic, retain) UIImageView *icon;
+
 -(void) show;
 
 -(void) showAndDismissAfterDelay:(float) delay;
