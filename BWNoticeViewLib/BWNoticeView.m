@@ -174,17 +174,6 @@ static UIColor * secondBottomLine;
     [v release];
 
 
-//    // Make and add the title label
-//        float titleYOrigin = 18.0;
-//        self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(55.0, titleYOrigin, viewWidth - 70.0, 16.0)];
-//        self.titleLabel.textColor = [UIColor whiteColor];
-//        self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-//        self.titleLabel.shadowColor = [UIColor blackColor];
-//        self.titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
-//        self.titleLabel.backgroundColor = [UIColor clearColor];
-//        self.titleLabel.text = title;
-
-
 }
 
 -(void) show
