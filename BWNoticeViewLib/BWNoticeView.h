@@ -38,9 +38,16 @@ typedef enum DefaultCartridgeType {NOTICE, ERROR} DefaultCartridgeType;
 
 @property(nonatomic) BOOL showActivityIndicator;
 
+//  set the colors of the gradient and the different border colors
+//  border 1 is top first border line
+//  border 2 is top second border line
+//  border 3 is bottom first border line
+//  border 4 is bottom second border line
 @property(nonatomic, retain) NoticeViewColorCartridge *colorCartridge;
 
-
+//  2 defaults are provided for use
+//      * NOTICE    - this is blue
+//      * ERROR     - this is red
 -(void) setDefaultCartridgeType:(DefaultCartridgeType) cartridgeType;
 
 -(void) show;

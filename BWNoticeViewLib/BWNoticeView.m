@@ -151,7 +151,7 @@
 -(void) __init
 {
 
-    [self initDefaultCartridges];
+    [self __initDefaultCartridges];
     self.colorCartridge = noticeBlueCartridge;
 
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -357,7 +357,7 @@
 
 
 
--(void) initDefaultCartridges
+-(void) __initDefaultCartridges
 {
     self.errorRedCartridge = [[[NoticeViewColorCartridge alloc] init] autorelease];
     errorRedCartridge.gradientTop = [UIColor ErrorRedGradientTop];
