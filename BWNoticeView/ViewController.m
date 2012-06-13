@@ -30,7 +30,7 @@
 
     self.bwView = [[[BWNoticeView alloc] initWithFrame:f] autorelease];
     bwView.showActivityIndicator = NO;
-    bwView.title = @"hello world";
+    bwView.title = @"hello world, this is a notice";
 
 
     [self.view addSubview:bwView];

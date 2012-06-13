@@ -331,6 +331,8 @@
     self.messageLabel.frame = msgFrame;
     self.titleLabel.frame = titleFrame;
 
+    messageLabel.hidden = (msgSize.height > 0) ? NO : YES;
+
     // resize the frame of the notice view if the text has increased
     // or decreased in height
     rect.size.height = totalHeight;
