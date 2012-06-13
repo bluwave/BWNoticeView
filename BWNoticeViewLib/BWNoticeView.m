@@ -68,7 +68,7 @@ static UIColor * secondBottomLine;
 
     self.btnClickToDismiss = [UIButton buttonWithType:UIButtonTypeCustom];
     btnClickToDismiss.frame = self.frame;
-    [btnClickToDismiss addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
+    [btnClickToDismiss addTarget:self action:@selector(dismissClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btnClickToDismiss];
 
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -114,7 +114,47 @@ static UIColor * secondBottomLine;
 
 }
 
--(void) dismiss:(id) sender
+-(void) show
+{
+    [self showAndDismissAfterDelay:-1];
+}
+-(void) showAndDismissAfterDelay:(float) delay
+{
+    CGRect frame = self.frame;
+    frame.origin.y = self.frame.size.height;
+    // show
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationCurveEaseOut animations:^() {
+        self.frame = frame;
+    } completion:^(BOOL complete){
+
+        // hide after delay
+        if (delay > -1)
+        {
+            [self dismissAfterDelay:delay];
+        }
+
+    }];
+}
+
+-(void) dismiss
+{
+    [self dismissAfterDelay:0];
+}
+
+-(void) dismissAfterDelay:(float) delay
+{
+    CGRect frame = self.frame;
+
+    frame.origin.y -= self.frame.size.height + self.frame.origin.y + 5;
+
+    [UIView animateWithDuration:0.5 delay:delay options:UIViewAnimationCurveEaseOut animations:^() {
+
+        self.frame = frame;
+
+    } completion:^(BOOL) {}];
+}
+
+-(void) dismissClicked:(id) sender
 {
     if (canBeDismissed)
     {

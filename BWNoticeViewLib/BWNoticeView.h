@@ -11,6 +11,17 @@
 @interface BWNoticeView : UIView
 
 @property(nonatomic, retain) UIColor *backgroundGradientTop;
+
 @property(nonatomic, retain) UIColor *backgroundGradientBottom;
+
 @property(nonatomic) BOOL canBeDismissed;
+
+-(void) show;
+
+-(void) showAndDismissAfterDelay:(float) delay;
+
+-(void) dismiss;
+
+-(void) dismissAfterDelay:(float) delay;
+
 @end
